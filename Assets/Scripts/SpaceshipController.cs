@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class SpaceshipController : MonoBehaviour {
 
@@ -33,6 +34,12 @@ public class SpaceshipController : MonoBehaviour {
 
 		if (Input.GetKeyDown (downButton)) {
 			spaceshipbody.AddForce (-transform.up * speed);
+		}
+	}
+
+	void OnCollisionEnter2D(Collision2D c){
+		if (c.gameObject.tag == "Obstacle"){
+			SceneManager.LoadScene(0);
 		}
 	}
 }
