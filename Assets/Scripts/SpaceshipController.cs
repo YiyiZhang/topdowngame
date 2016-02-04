@@ -11,7 +11,7 @@ public class SpaceshipController : MonoBehaviour {
 	string rightButton = "right";
 	string downButton = "down";
 
-	float speed = 2f;
+	float speed = 6f;
 
 	// Use this for initialization
 	void Start () {
@@ -25,15 +25,15 @@ public class SpaceshipController : MonoBehaviour {
 		}
 
 		if (Input.GetKeyDown (leftButton)) {
-			spaceshipbody.AddTorque (20 * speed);
+			spaceshipbody.AddTorque (0.2f);
 		}
 
 		if (Input.GetKeyDown (rightButton)) {
-			spaceshipbody.AddTorque (-20 * speed);
+			spaceshipbody.AddTorque (-0.2f);
 		}
 
 		if (Input.GetKeyDown (downButton)) {
-			spaceshipbody.AddForce (-transform.up * speed);
+			spaceshipbody.AddForce (-transform.up);
 		}
 	}
 
