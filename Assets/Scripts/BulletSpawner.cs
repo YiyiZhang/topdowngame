@@ -8,6 +8,7 @@ using System.Collections;
 public class BulletSpawner : MonoBehaviour {
 
 	public GameObject bullet2spawn;
+	float speed = 50f;
 
 	// Use this for initialization
 	void Start () {
@@ -23,8 +24,8 @@ public class BulletSpawner : MonoBehaviour {
 			//GameObject bulletbaby = o as GameObject; //another way to cast
 			//GameObject bulletbaby = (GameObject)Instantiate (bullet2spawn, this.transform.position, Quaternion.identity); //another way to cast
 			Rigidbody2D fullgrownbullet = bulletbaby.GetComponent<Rigidbody2D>();//can't directly add force to bulletbaby because it is a prefab!
-			fullgrownbullet.AddForce (this.transform.up * 20); //transform.up is already a vector so it doesn't need to be set as a vector
-		}
-	
+			fullgrownbullet.AddForce (this.transform.up * speed); //transform.up is already a vector so it doesn't need to be set as a vector
+		}	
 	}
+		
 }
