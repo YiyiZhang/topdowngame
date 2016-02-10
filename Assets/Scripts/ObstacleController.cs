@@ -1,15 +1,11 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BulletController : MonoBehaviour {
-
-	//public AudioClip needleSound; work on this
-
+public class ObstacleController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
 	
-		//needleSound = GetComponent<AudioSource> (); work on this
 	}
 	
 	// Update is called once per frame
@@ -19,9 +15,9 @@ public class BulletController : MonoBehaviour {
 
 	void OnCollisionEnter2D (Collision2D c){
 		if (c.gameObject.tag == "Asteroid"){
-			Destroy (c.gameObject);
-			//sound effect event here!!
+			AsteroidController asCont = c.gameObject.GetComponent<AsteroidController>();
+			asCont.speed = -asCont.speed;
+			print ("Changed Speed" + asCont.speed);
 		}
-
-}
+	}
 }
